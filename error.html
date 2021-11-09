@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+
+    <title>Page Not Found</title>
+    <style>
+        body{
+          background: #05070a;
+        }
+    </style>
+</head>
+<body>
+<header class="container-fluid ">
+    <div class="row">
+        <nav aria-label="breadcrumb" class="bg-primary py-2 px-5">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class=" text-light" href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="todolist.html" class=" text-light">TodoList</a></li>
+            </ol>
+        </nav>
+        <div class="toast position-absolute mt-5 toast-third py-2 bg-danger text-light align-items-center" role="alert"
+             aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Please fill in all values...!!!
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="toast position-absolute mt-5 toast-fourth py-2 bg-success text-light align-items-center"
+             role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Your Data get Edit...!
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="toast position-absolute mt-5 toast-fifth py-2 bg-danger text-light align-items-center" role="alert"
+             aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    There Is An Error to Edit Data...!
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- start header-section -->
+    <div class="row">
+        <div class="col-6 col-md-3 mx-auto mt-5 d-flex align-items-center justify-content-center mb-5 fs-4 text-primary">
+            <i class="fas fa-check-square me-2 "></i>
+
+            <u>My Todo-s </u>
+
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+      <section class="error text-center">
+          <span class="display-1 fw-bold text-primary">404</span>
+          <p class="text-light  fs-1 mt-3">Page Not Found</p>
+          <a href="index.html" class=" text-decoration-none fs-4">Go to The First Page</a>
+
+      </section>
+    </div>
+</div>
+
+<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
