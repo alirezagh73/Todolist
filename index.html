@@ -23,11 +23,14 @@
         }
 
         .decrip {
-            resize: none;
+            height: 150px;
         }
-        
-      
-      
+
+        .decrip::placeholder {
+            position: relative;
+            top: -50%;
+
+        }
 
     </style>
 </head>
@@ -88,7 +91,7 @@
             <div class="add-task-wrapper col-12 mx-auto bg-white py-4 px-3 rounded-3 shadow">
                 <div class="row">
                     <div class="col-12 col-md-9">
-                        <input type="text" class="form-control  shadow-none fw-bold" id="form-inp"
+                        <input type="text" class="form-control border-0 shadow-none fw-bold" id="form-inp"
                                placeholder="Add new...">
 
                         <!--                        <input type="hidden" value="" id="saveindexinp">-->
@@ -111,8 +114,8 @@
             <div class="add-task-wrapper col-12 mx-auto bg-white py-4 px-3 rounded-3 shadow">
                 <div class="row">
                     <div class="col-12">
-                        <textarea type="text" class="form-control  shadow-none fw-bold decrip" id="description"
-                               placeholder="Write Description..."></textarea>
+                        <input type="text" class="form-control border-0 shadow-none fw-bold decrip" id="description"
+                               placeholder="Write Description...">
 
                     </div>
                 </div>

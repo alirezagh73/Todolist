@@ -10,37 +10,6 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const spinner = document.getElementById("spinner");
 
-
-
-async function checkId() {
-    const urlSearchParamsEdit = new URLSearchParams(window.location.search);
-    const paramsedit = Object.fromEntries(urlSearchParamsEdit.entries());
-
-    if (paramsedit.id) {
-        let taskObj;
-        let checkArr = [];
-
-        let response = await fetch(url);
-        if (response.ok) {
-            taskObj = await response.json();
-        } else {
-            console.log("We Have an Error");
-        }
-        taskObj.reverse();
-        taskObj.forEach((item) => {
-            checkArr.push(item.id);
-        });
-        if (!checkArr.includes(paramsedit.id)) {
-            queries = new URLSearchParams(window.location.search);
-            queries.delete("id");
-            history.replaceState(null, null, "error.html?" + queries.toString());
-            location.assign(window.location.search);
-        }
-
-    }
-}
-checkId()
-
 async function postTask(e) {
     e.preventDefault();
     spinner.classList.remove("d-none");
@@ -83,9 +52,7 @@ async function postTask(e) {
 
 if (params.id) {
     async function editTask() {
-        let checkId = params.id;
-        let myIndex;
-        // console.log(id,index);
+        let index = params.id;
         let taskObj;
         let response = await fetch(url);
         if (response.ok) {
@@ -94,16 +61,9 @@ if (params.id) {
             console.log("We Have an Error");
         }
         taskObj.reverse();
-
-        taskObj.forEach((item, index) => {
-            if (item.id == checkId) {
-                return myIndex = index;
-            }
-        })
-
-        formInp.value = taskObj[myIndex].title;
-        descInp.value = taskObj[myIndex].description;
-        deuDateInp.value = taskObj[myIndex].dueDate;
+        formInp.value = taskObj[index].title;
+        descInp.value = taskObj[index].description;
+        deuDateInp.value = taskObj[index].dueDate;
         formInp.focus();
         addTaskBtn.style.display = "none";
         saveTaskBtn.style.display = "inline-block"
@@ -117,8 +77,6 @@ if (params.id) {
 async function saveTask() {
 
     let taskObj;
-    let saveindexval;
-    const checkId = params.id;
     let response = await fetch(url);
     if (response.ok) {
         taskObj = await response.json();
@@ -126,13 +84,7 @@ async function saveTask() {
         console.log("We Have an Error");
     }
     taskObj.reverse();
-    taskObj.forEach((item, index) => {
-        if (item.id == checkId) {
-            return saveindexval = index;
-        }
-    })
-
-
+    const saveindexval = params.id;
     spinner.classList.remove("d-none");
     taskObj[saveindexval].title = formInp.value;
     taskObj[saveindexval].description = descInp.value;
@@ -194,3 +146,4 @@ function toastFourthInit() {
     let toastAlert = new bootstrap.Toast(myToast);
     toastAlert.show();
 }
+
