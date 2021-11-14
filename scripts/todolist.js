@@ -43,12 +43,14 @@ async function showTask(page, size = 10) {
                 // console.log(arrayList[i].title)
                 html += `<div class="row task-item">
             <li class="col-8 col-md -10 list-group-item border-0 bg-transparent my-1 ">
-                <input class="form-check-input me-3" type="checkbox" id="" checked onclick="saveCheckbox(${(page * 10) + i})"  value="">
-           <span>${arrayList[i].title}</span>  
+                <input class="form-check-input me-3" type="checkbox" id="check${(page * 10) + i}" checked onclick="saveCheckbox(${(page * 10) + i})"  value="">
+           <label for="check${(page * 10) + i}">${arrayList[i].title}</label> 
+           <p class="text-gray mt-1 fs-5"> <small class="text-black fs-5">Desc :</small> ${arrayList[i].description}</p>
+           <p class="text-gray mt-1 fs-5"> <small class="text-black fs-5">DueDate :</small> ${arrayList[i].dueDate}</p>
             </li>
             <div class="col-4 col-md-2 edit text-end">
-                <i class="fas fa-pencil-alt text-end mx-3 pt-3 text-primary d-none" role='button' onclick=editTask(${(page * 10) + i})></i>
-                <i class="far fa-trash-alt d-none text-danger" role='button' data-bs-toggle="modal" onclick="showModal(${(page * 10) + i})" data-bs-target="#exampleModal${(page * 10) + i}"></i>
+                <i class="fas fa-pencil-alt text-end mx-3 pt-3 text-primary " role='button' onclick=editTask(${(page * 10) + i})></i>
+                <i class="far fa-trash-alt  text-danger" role='button' data-bs-toggle="modal" onclick="showModal(${(page * 10) + i})" data-bs-target="#exampleModal${(page * 10) + i}"></i>
                 <div class="modal fade" id="exampleModal${(page * 10) + i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content text-start">
@@ -74,12 +76,14 @@ async function showTask(page, size = 10) {
                 // console.log(arrayList[i].title)
                 html += `<div class="row task-item">
             <li class="col-8 col-md-10 list-group-item border-0 bg-transparent my-1 ">
-                <input class="form-check-input me-3" type="checkbox" id="" onclick="saveCheckbox(${(page * 10) + i})"  value="">
-           <span>${arrayList[i].title}</span>  
+                <input class="form-check-input me-3" type="checkbox" id="check${(page * 10) + i}" onclick="saveCheckbox(${(page * 10) + i})"  value="">
+           <label for="check${(page * 10) + i}">${arrayList[i].title}</label>  
+           <p class="text-gray mt-1 fs-5"> <small class="text-black fs-5">Desc :</small> ${arrayList[i].description}</p>
+           <p class="text-gray mt-1 fs-5"> <small class="text-black fs-5">DueDate :</small> ${arrayList[i].dueDate}</p>
             </li>
             <div class="col-4 col-md-2 edit text-end">
-                <i class="fas fa-pencil-alt text-end mx-3 pt-3 text-primary d-none" role='button' onclick=editTask(${(page * 10) + i})></i>
-                <i class="far fa-trash-alt d-none text-danger" role='button' data-bs-toggle="modal" onclick="showModal(${(page * 10) + i})" data-bs-target="#exampleModal${(page * 10) + i}" ></i>
+                <i class="fas fa-pencil-alt text-end mx-3 pt-3 text-primary" role='button' onclick=editTask(${(page * 10) + i})></i>
+                <i class="far fa-trash-alt text-danger" role='button' data-bs-toggle="modal" onclick="showModal(${(page * 10) + i})" data-bs-target="#exampleModal${(page * 10) + i}" ></i>
             <div class="modal fade" id="exampleModal${(page * 10) + i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content text-start">
