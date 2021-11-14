@@ -23,7 +23,7 @@ async function showTask(page, size = 10) {
 
     let queryParams = new URLSearchParams(window.location.search);
 
-    queryParams.set("page", `${+page+1}`);
+    queryParams.set("page", `${+page + 1}`);
 
     history.pushState(null, null, "?" + queryParams.toString());
 
@@ -220,7 +220,13 @@ function paginationBtn(size = 10) {
                 for (let i = 0; i < data.length / size; i++) {
 
 
-                    btn += `<button class='pagination__btn'>${i+1}</button>`
+                    btn += `<button class='pagination__btn'>${i + 1}</button>`
+                }
+                let queries = new URLSearchParams(window.location.search);
+                if (queries.get("page") > elem.childNodes.length + 1) {
+                    queries.delete("page");
+                    history.replaceState(null, null, "error.html?" + queries.toString());
+                    location.assign(window.location.search);
                 }
                 elem.innerHTML = btn;
             });
