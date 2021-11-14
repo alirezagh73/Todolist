@@ -3,7 +3,7 @@ const taskGroup = document.querySelectorAll(".taskGroup")
 const url = "https://6180cdd88bfae60017adfc0d.mockapi.io/todos"
 const deleteBtn = document.getElementById("saveDeleteIndex");
 const btnPaginationList = document.querySelectorAll(".paginationBtn")
-const spinner=document.getElementById("spinner");
+const spinner = document.getElementById("spinner");
 
 async function showTask(page, size = 10) {
     spinner.classList.add("d-none");
@@ -114,20 +114,30 @@ async function showTask(page, size = 10) {
     btnPag.forEach((elem, i) => {
         elem.addEventListener('click', () => {
             showTask(i);
-            addClass(elem,btnPag);
+            addClass(elem, btnPag);
         });
     });
 
 }
 
-function editTask(index) {
+async function editTask(index) {
+    let taskObj
+    let response = await fetch(url);
+    if (response.ok) {
+        taskObj = await response.json();
+    } else {
+        console.log("We Have an Error");
+    }
+    taskObj.reverse();
+
+
     let queryParams = new URLSearchParams(window.location.search);
     // console.log(window.location)
     queryParams.delete("page");
-    queryParams.set("id", `${index}`);
+    queryParams.set("id", `${taskObj[index].id}`);
     console.log(window.location.href);
 
-  history.replaceState(null, null, "index.html?" + queryParams.toString());
+    history.replaceState(null, null, "index.html?" + queryParams.toString());
     location.assign(window.location.href);
 }
 
@@ -186,7 +196,7 @@ async function deleteTask() {
     if (!deleteTask.ok) {
         spinner.classList.add("d-none");
         console.log("We Have an Error");
-    }else {
+    } else {
         let queryParams = new URLSearchParams(window.location.search);
         let newUrl = queryParams.get("page");
         console.log(newUrl);
@@ -216,11 +226,10 @@ function paginationBtn(size = 10) {
 paginationBtn()
 
 
-function addClass(btnElem, prevBtn){
+function addClass(btnElem, prevBtn) {
     prevBtn.forEach(elem => elem.classList.remove('pagination__btn-active'));
     btnElem.classList.add('pagination__btn-active');
 }
 
 
 showTask(0)
-

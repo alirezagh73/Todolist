@@ -23,14 +23,10 @@
         }
 
         .decrip {
-            height: 150px;
+            resize: none;
         }
 
-        .decrip::placeholder {
-            position: relative;
-            top: -50%;
-
-        }
+      
 
     </style>
 </head>
@@ -114,8 +110,8 @@
             <div class="add-task-wrapper col-12 mx-auto bg-white py-4 px-3 rounded-3 shadow">
                 <div class="row">
                     <div class="col-12">
-                        <input type="text" class="form-control border-0 shadow-none fw-bold decrip" id="description"
-                               placeholder="Write Description...">
+                        <textarea type="text" class="form-control border-0 shadow-none fw-bold decrip" id="description"
+                               placeholder="Write Description..."></textarea>
 
                     </div>
                 </div>
