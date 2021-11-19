@@ -5,6 +5,8 @@ const deleteBtn = document.getElementById("saveDeleteIndex");
 const btnPaginationList = document.querySelectorAll(".paginationBtn")
 const spinner = document.getElementById("spinner");
 
+
+
 async function showTask(page, size = 10) {
     spinner.classList.add("d-none");
     let taskObj;
@@ -175,7 +177,7 @@ async function saveCheckbox(index) {
     }
 }
 
-
+//for saving index of  selected item for deleted after show modal
 function showModal(index) {
     deleteBtn.value = index;
 }
@@ -218,8 +220,6 @@ function paginationBtn(size = 10) {
         .then((data) => {
             btnPaginationList.forEach((elem, i) => {
                 for (let i = 0; i < data.length / size; i++) {
-
-
                     btn += `<button class='pagination__btn'>${i + 1}</button>`
                 }
                 let queries = new URLSearchParams(window.location.search);

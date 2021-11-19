@@ -16,6 +16,9 @@ async function checkId() {
     const urlSearchParamsEdit = new URLSearchParams(window.location.search);
     const paramsedit = Object.fromEntries(urlSearchParamsEdit.entries());
 
+    console.log(paramsedit)
+    //if parametere has id  its go on...
+
     if (paramsedit.id) {
         let taskObj;
         let checkArr = [];
@@ -40,6 +43,9 @@ async function checkId() {
     }
 }
 checkId()
+
+
+
 
 async function postTask(e) {
     e.preventDefault();
